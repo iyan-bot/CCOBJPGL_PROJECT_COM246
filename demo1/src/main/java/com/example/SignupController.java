@@ -25,14 +25,14 @@ public class SignupController {
 
     @FXML private Button exitButton;
     @FXML private Button minButton;
-    @FXML private Button maxButton;
+    
     @FXML private HBox titleBar;
 
     @FXML private ImageView exitIcon;
     @FXML private ImageView minIcon;
-    @FXML private ImageView maxIcon;
+   
 
-    private final boolean[] isMaximized = { false };
+    
     private final double[] prevBounds = new double[4];
 
     @FXML
@@ -43,7 +43,7 @@ public class SignupController {
         // Set icons for window control buttons
         exitIcon.setImage(new Image(getClass().getResourceAsStream("/com/example/x.png")));
         minIcon.setImage(new Image(getClass().getResourceAsStream("/com/example/-.png")));
-        maxIcon.setImage(new Image(getClass().getResourceAsStream("/com/example/max.png")));
+    
 
         // Enable dragging after the window loads
         Platform.runLater(() -> {
@@ -89,9 +89,4 @@ public class SignupController {
         WindowControls.minimize(stage);
     }
 
-    @FXML
-    private void handleMaximizeRestore() {
-        Stage stage = (Stage) maxButton.getScene().getWindow();
-        WindowControls.toggleMaximize(stage, isMaximized, prevBounds);
-    }
 }

@@ -1,19 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.PassengerHomeController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="900.0" style="-fx-background-radius: 25; -fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.PassengerHomeController">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane prefHeight="35.0" prefWidth="900.0" style="-fx-background-color: #00adef; -fx-background-radius: 0 0 25 25;">
          <children>
-            <ImageView fitHeight="780.0" fitWidth="420.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../../Downloads/Your%20paragraph%20text.png" />
-               </image>
-            </ImageView>
+            <HBox fx:id="titleBar" alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="886.0" style="-fx-background-color: transparent; -fx-background-radius: 0 0 25 25;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button fx:id="minButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#handleMinimize" style="-fx-background-color: transparent; -fx-text-fill: white;" stylesheets="@choose.css">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                     <graphic>
+                        <ImageView fx:id="minIcon" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../../Downloads/-.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="exitButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#handleExit" style="-fx-background-color: transparent; -fx-text-fill: white;" stylesheets="@choose.css">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                     <graphic>
+                        <ImageView fx:id="exitIcon" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../../Downloads/x.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="48.0" prefHeight="445.0" prefWidth="900.0">
+         <children>
+            <WebView fx:id="mapView" layoutX="30.0" layoutY="23.0" prefHeight="400.0" prefWidth="562.0" />
+            <Button fx:id="requestRideButton" layoutX="616.0" layoutY="246.0" onAction="#handleRideRequest" prefHeight="26.0" prefWidth="94.0" style="-fx-background-radius: 25;" text="Request Ride" />
+            <Label fx:id="timeLabel" layoutX="615.0" layoutY="293.0" text="Estimated Time: --" />
+            <Label fx:id="fareLabel" layoutX="616.0" layoutY="324.0" text="Fare Estimate: ₱--" />
+            <Label fx:id="welcomeLabel" layoutX="627.0" layoutY="35.0" style="-fx-font-size: 16;" text="Welcome!" />
+            <VBox fx:id="pickupContainer" layoutX="617.0" layoutY="71.0" prefHeight="84.0" prefWidth="250.0">
+               <children>
+                  <TextField fx:id="pickupField" prefWidth="200" promptText="Pickup Location" style="-fx-background-radius: 25;" />
+                  <ListView fx:id="pickupSuggestions" prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </VBox>
+            <VBox fx:id="destinationContainer" layoutX="617.0" layoutY="155.0" prefHeight="84.0" prefWidth="250.0">
+               <children>
+                  <TextField fx:id="destinationField" prefWidth="200" promptText="Destination" style="-fx-background-radius: 25;" />
+                  <ListView fx:id="destinationSuggestions" prefHeight="50.0" prefWidth="250.0" />
+               </children>
+            </VBox>
          </children>
       </AnchorPane>
    </children>

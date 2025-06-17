@@ -12,6 +12,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
@@ -22,22 +23,23 @@ public class LoginController {
 
     @FXML private Button exitButton;
     @FXML private Button minButton;
-    @FXML private Button maxButton;
+  
     @FXML private HBox titleBar;
 
     @FXML private ImageView exitIcon;
     @FXML private ImageView minIcon;
-    @FXML private ImageView maxIcon;
+    
+    @FXML private ImageView backgroundImage;
 
-    private final boolean[] isMaximized = { false };
+   
     private final double[] prevBounds = new double[4];
 
     @FXML
     private void initialize() {
-        // Set control icons (optional - make sure images exist)
+        backgroundImage.setImage(new Image(getClass().getResourceAsStream("/com/example/background.png")));
         exitIcon.setImage(new Image(getClass().getResourceAsStream("/com/example/x.png")));
         minIcon.setImage(new Image(getClass().getResourceAsStream("/com/example/-.png")));
-        maxIcon.setImage(new Image(getClass().getResourceAsStream("/com/example/max.png")));
+       
 
         // Enable drag after scene is loaded
         Platform.runLater(() -> {
@@ -108,11 +110,5 @@ public class LoginController {
     private void handleMinimize() {
         Stage stage = (Stage) minButton.getScene().getWindow();
         WindowControls.minimize(stage);
-    }
-
-    @FXML
-    private void handleMaximizeRestore() {
-        Stage stage = (Stage) maxButton.getScene().getWindow();
-        WindowControls.toggleMaximize(stage, isMaximized, prevBounds);
     }
 }

@@ -17,11 +17,16 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="900.0" style="-fx-background-radius: 25; -fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.LoginController">
    <children>
-      <AnchorPane layoutX="420.0" layoutY="29.0" prefHeight="465.0" prefWidth="480.0" style="-fx-background-color: #00adef; -fx-background-radius: 25 0 25 0;">
+      <AnchorPane layoutY="50.0" prefHeight="443.0" prefWidth="900.0" style="-fx-background-color: white; -fx-background-radius: 25 0 25 0;">
          <children>
-            <Label layoutX="148.0" layoutY="101.0" text="Login" textFill="WHITE">
+            <ImageView fx:id="backgroundImage" fitHeight="443.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../Downloads/background.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="394.0" layoutY="65.0" text="Login" textFill="#00adef">
                <font>
-                  <Font name="Segoe UI Light" size="52.0" />
+                  <Font name="Segoe UI Light" size="67.0" />
                </font>
                <effect>
                   <DropShadow>
@@ -31,31 +36,19 @@
                   </DropShadow>
                </effect>
             </Label>
-            <TextField fx:id="usernameField" layoutX="148.0" layoutY="208.0" prefHeight="26.0" prefWidth="278.0" style="-fx-background-radius: 10;" />
-            <PasswordField fx:id="passwordField" layoutX="148.0" layoutY="274.0" prefHeight="26.0" prefWidth="278.0" style="-fx-background-radius: 10;" />
-            <Label layoutX="25.0" layoutY="208.0" text="Username:" textFill="WHITE">
+            <TextField fx:id="usernameField" layoutX="333.0" layoutY="177.0" prefHeight="26.0" prefWidth="278.0" style="-fx-background-radius: 10;" />
+            <PasswordField fx:id="passwordField" layoutX="333.0" layoutY="243.0" prefHeight="26.0" prefWidth="278.0" style="-fx-background-radius: 10;" />
+            <Label layoutX="210.0" layoutY="177.0" text="Username:" textFill="#00adef">
                <font>
-                  <Font size="17.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <ImageView fitHeight="108.0" fitWidth="101.0" layoutX="314.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../../Downloads/Your%20paragraph%20text%20(1).png" />
-               </image>
-               <effect>
-                  <DropShadow>
-                     <color>
-                        <Color opacity="0.23480242490768433" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </ImageView>
-            <Label layoutX="27.0" layoutY="274.0" text="Password:" textFill="WHITE">
+            <Label layoutX="212.0" layoutY="243.0" text="Password:" textFill="#00adef">
                <font>
-                  <Font size="17.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Button fx:id="btnSignIn" layoutX="136.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="42.0" prefWidth="158.0" style="-fx-background-radius: 20; -fx-background-color: #2c3587;" stylesheets="@choose.css" text="Sign in" textFill="WHITE">
+            <Button fx:id="btnSignIn" layoutX="321.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="42.0" prefWidth="158.0" style="-fx-background-radius: 20; -fx-background-color: #00adef;" stylesheets="@choose.css" text="Sign in" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -63,7 +56,7 @@
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="btnSignUp" layoutX="332.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleSignup" prefHeight="42.0" prefWidth="101.0" style="-fx-background-radius: 20; -fx-background-color: #2c3587;" stylesheets="@choose.css" text="Sign up" textFill="WHITE">
+            <Button fx:id="btnSignUp" layoutX="517.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleSignup" prefHeight="42.0" prefWidth="101.0" style="-fx-background-radius: 20; -fx-background-color: #00adef;" stylesheets="@choose.css" text="Sign up" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -73,9 +66,9 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="35.0" prefWidth="900.0" style="-fx-background-color: #2c3587; -fx-background-radius: 0 0 25 25;">
+      <AnchorPane prefHeight="35.0" prefWidth="900.0" style="-fx-background-color: #00adef; -fx-background-radius: 0 0 25 25;">
          <children>
-            <HBox fx:id="titleBar" alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="886.0" style="-fx-background-color: #2c3587; -fx-background-radius: 0 0 25 25;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <HBox fx:id="titleBar" alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="886.0" style="-fx-background-color: transparent; -fx-background-radius: 0 0 25 25;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Button fx:id="minButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#handleMinimize" style="-fx-background-color: transparent; -fx-text-fill: white;" stylesheets="@choose.css">
                      <font>
@@ -91,24 +84,6 @@
                         <ImageView fx:id="minIcon" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../../../../../../Downloads/-.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="maxButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#handleMaximizeRestore" style="-fx-background-color: transparent; -fx-text-fill: white;" stylesheets="@choose.css">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <padding>
-                        <Insets right="20.0" />
-                     </padding>
-                     <graphic>
-                        <ImageView fx:id="maxIcon" fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../../../../Downloads/max.png" />
                            </image>
                         </ImageView>
                      </graphic>
